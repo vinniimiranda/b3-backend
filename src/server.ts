@@ -15,6 +15,6 @@ io.on('connection', async client => {
 
 setInterval(async () => {
   io.emit('getData', await getActions());
-}, 6000);
+}, 60000);
 
 export default server.listen(PORT);
