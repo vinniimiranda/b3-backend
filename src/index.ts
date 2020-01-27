@@ -28,6 +28,10 @@ async function getData(model: Model): Promise<object> {
   const payload = {
     ...model,
     ...values,
+    price: values.price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }),
     date: moment(dateSplit)
       .locale('pt-br')
       .format('L à\\s LT'),
@@ -35,12 +39,11 @@ async function getData(model: Model): Promise<object> {
   return payload;
 }
 
-async function getActions(): Promise<void> {
+export async function getActions(): Promise<Array<object>> {
   const inter = await getData(Inter);
   const oi = await getData(Oi);
   const bcff11 = await getData(BCFF11);
   const hglg11 = await getData(HGLG11);
-  console.log([inter, oi, bcff11, hglg11]);
-}
 
-getActions();
+  return [inter, oi, bcff11, hglg11];
+}
