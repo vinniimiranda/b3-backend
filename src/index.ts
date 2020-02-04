@@ -7,6 +7,11 @@ import Inter from './models/Inter';
 import Oi from './models/Oi';
 import BCFF11 from './models/BCFF11';
 import HGLG11 from './models/HGLG11';
+import Cosan from './models/Cosan';
+import Klabin from './models/Klabin';
+import PetroRio from './models/PetroRio';
+import Vivara from './models/Vivara';
+import YDUQS from './models/YDUQS';
 
 async function getData(model: Model): Promise<object> {
   const { data } = await api({
@@ -44,6 +49,11 @@ export async function getActions(): Promise<Array<object>> {
   const oi = await getData(Oi);
   const bcff11 = await getData(BCFF11);
   const hglg11 = await getData(HGLG11);
+  const cosan = await getData(Cosan);
+  const klabin = await getData(Klabin);
+  const petroRio = await getData(PetroRio);
+  const vivara = await getData(Vivara);
+  const yduqs = await getData(YDUQS);
 
-  return [inter, oi, bcff11, hglg11];
+  return [inter, oi, bcff11, hglg11, cosan, klabin, petroRio, vivara, yduqs];
 }
