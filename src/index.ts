@@ -45,5 +45,5 @@ export async function getActions(): Promise<Array<object>> {
   const cvc = await getData(CVCB3);
   const azul = await getData(AZUL4);
 
-  return [inter, hglg11, gol];
+  return [inter, cvc, azul, gol, hglg11];
 }
